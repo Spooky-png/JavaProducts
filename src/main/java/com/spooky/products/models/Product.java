@@ -3,6 +3,7 @@ package com.spooky.products.models;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -34,7 +35,7 @@ public class Product {
  private Date createdAt;
  @DateTimeFormat(pattern="yyyy-MM-dd")
  private Date updatedAt;
- @ManyToMany(fetch = FetchType.LAZY)
+ @ManyToMany(fetch = FetchType.LAZY, cascade=CascadeType.ALL)
  @JoinTable(
      name = "categories_products", 
      joinColumns = @JoinColumn(name = "product_id"), 
